@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flexo::Extremes do
+describe Flexo::DataSet::Extremes do
 
   before do
     @dataset = Flexo::DataSet.new([1, 2, 3, 4, 5])

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flexo::Means do
+describe Flexo::DataSet::Means do
   before do
     @dataset = Flexo::DataSet.new([1, 2, 3, 4, 5])
   end

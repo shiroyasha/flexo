@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flexo::Histograms do
+describe Flexo::DataSet::Histograms do
 
   before do
     @dataset = Flexo::DataSet.new([1, 2, 3, 4, 5])
