@@ -47,6 +47,30 @@ describe Flexo::Histogram do
     end
   end
 
+  describe "#table" do
+    it "draws a histogram table in the console" do
+      histogram = Flexo::Histogram.new((1..120).to_a, :bin_size => 9)
+
+expected_output = <<TABLE
+   1...10 | ###
+  10...19 | ###
+  19...28 | ###
+  28...37 | ###
+  37...46 | ###
+  46...55 | ###
+  55...64 | ###
+  64...73 | ###
+  73...82 | ###
+  82...91 | ###
+ 91...100 | ###
+100...109 | ###
+109...118 | ###
+TABLE
+
+      expect { histogram.table }.to match_stdout(expected_output)
+    end
+  end
+
   describe "#intervals" do
     context "when intervals are provided as an argument" do
       it "constructs the range based on the min and max of the dataset" do

@@ -33,6 +33,21 @@ class Flexo::Histogram
     counts.map { |count| (count.to_f/@data.length) * 100 }
   end
 
+  def table
+    intervals_column   = intervals.map(&:to_s)
+    percentages_column = percentages.map { |percentage| "#" * (percentage / 2).to_i  }
+
+    intervals_column_width = intervals_column.map(&:length).max
+
+    intervals_column.map! { |interval| interval.rjust(intervals_column_width, " ") }
+
+    intervals_column.zip(percentages_column).each do |pair|
+      puts "%s | %s" % pair
+    end
+
+    nil
+  end
+
   private
 
   def generate_intervals

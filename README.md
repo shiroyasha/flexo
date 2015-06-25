@@ -61,6 +61,44 @@ histogram.counts     # => [2, 2, 1]
 histogram.percentage # => [40, 40, 20]
 ```
 
+``` ruby
+histogram.table
+
+   1...10 | ###
+  10...19 | ###
+  19...28 | ###
+  28...37 | ###
+  37...46 | ###
+  46...55 | ###
+  55...64 | ###
+  64...73 | ###
+  73...82 | ###
+  82...91 | ###
+ 91...100 | ###
+100...109 | ###
+109...118 | ###
+```
+
+For example to measure the randomness of the ruby's `Random`:
+
+``` ruby
+random_numbers = 100.times.map{ Random.rand(100) }
+
+set = Flexo::DataSet.new(random_numbers)
+set.histogram(:range => (0..100), :bin_size => 10).table
+
+  0...10 | #######
+ 10...20 | ####
+ 20...30 | ####
+ 30...40 | ####
+ 40...50 | ####
+ 50...60 | ####
+ 60...70 | #####
+ 70...80 | #######
+ 80...90 | ####
+90...100 | ####
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
