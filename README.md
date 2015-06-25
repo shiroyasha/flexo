@@ -10,14 +10,6 @@ Add this line to your application's Gemfile:
 gem 'flexo'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install flexo
-
 ## Usage
 
 Start by creating a `DataSet`
@@ -79,7 +71,7 @@ histogram.table
 109...118 | ###
 ```
 
-For example to measure the randomness of the ruby's `Random`:
+For example to measure the randomness of ruby's `Random`:
 
 ``` ruby
 random_numbers = 100.times.map{ Random.rand(100) }
