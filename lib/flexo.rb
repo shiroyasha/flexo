@@ -1,7 +1,7 @@
 require "flexo/version"
 
 module Flexo
-  require "flexo/ranges"
+  require "flexo/histogram"
 
   class DataSet
     require "flexo/data_set/means"
