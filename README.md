@@ -1,8 +1,6 @@
 # Flexo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/flexo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple gem for calculating various statistics data, histograms, distributions, etc...
 
 ## Installation
 
@@ -22,7 +20,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Start by creating a `DataSet`
+
+``` ruby
+set = Flexo::DataSet.new([1, 2, 3, 4, 5])
+```
+
+### Mean values
+
+Calculate various kinds of mean values for the provided data:
+
+``` ruby
+set.arithmetic_mean  # => 3
+
+set.geometric_mean   # => 2.6051
+
+set.harmonic_mean   # => 2.1897
+```
+
+### Extreme values
+
+Calculate extreme values
+
+``` ruby
+set.maximum # => 5
+
+set.minimum # => 1
+```
+
+### Histograms
+
+Create a histogram for the provided data
+
+``` ruby
+data_set  = Flexo::DataSet.new([1, 2, 3, 4, 5])
+histogram = set.histogram :bin_size => 2
+
+histogram.intervals  # => [1...3, 3...5, {5...7}]
+histogram.counts     # => [2, 2, 1]
+histogram.percentage # => [40, 40, 20]
+```
 
 ## Development
 
